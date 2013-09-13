@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Pauline Desgrandchamp</title>
+<script type="text/javascript" src="lib/dojo/dojo/dojo.js" data-dojo-config="'parseOnLoad':true,'async':true,'packages':[{'name':'maqetta','location':'../../maqetta'},{'name':'gridx','location':'../gridx'},{'name':'clipart','location':'../../clipart'},{'name':'shapes','location':'../../shapes'},{'name':'maqettaSamples','location':'../../../samples'},{'name':'zazl','location':'../../zazl'},{'name':'widgets','location':'../../../widgets'},{'name':'LinkWidget','location':'http://app.maqetta.org/maqetta/user/BX/ws/workspace/test/WebContent/widgets/LinkWidget'},{'name':'RenacleWidget','location':'http://app.maqetta.org/maqetta/user/BX/ws/workspace/test/WebContent/widgets/RenacleWidget'},{'name':'SlideWidget','location':'http://app.maqetta.org/maqetta/user/BX/ws/workspace/test/WebContent/widgets/SlideWidget'},{'name':'BioWidget','location':'http://app.maqetta.org/maqetta/user/BX/ws/workspace/test/WebContent/widgets/BioWidget'},{'name':'ShortMenuWidget','location':'http://app.maqetta.org/maqetta/user/BX/ws/workspace/test/WebContent/widgets/ShortMenuWidget'},{'name':'HomeWidget','location':'http://app.maqetta.org/maqetta/user/BX/ws/workspace/test/WebContent/widgets/HomeWidget'},{'name':'ProjectWidget','location':'http://app.maqetta.org/maqetta/user/BX/ws/workspace/test/WebContent/widgets/ProjectWidget'},{'name':'ContactWidget','location':'http://app.maqetta.org/maqetta/user/BX/ws/workspace/test/WebContent/widgets/ContactWidget'},{'name':'SideMenuWidget','location':'http://app.maqetta.org/maqetta/user/BX/ws/workspace/test/WebContent/widgets/SideMenuWidget'}],'themeMap':[['Android','',['themes/android/android.css']],['BlackBerry','',['themes/blackberry/blackberry.css']],['iPad','',['themes/ipad/ipad.css']],['iPhone','',['themes/iphone/iphone.css']],['.*','',['themes/iphone/iphone.css']]],'mblThemeFiles':[], mblLoadCompatPattern: /\/test\/WebContent\/themes\/.*\.css$/"></script>
+<script type="text/javascript">
+require([
+  "dijit/dijit",
+  "dojo/parser",
+  "maqetta/space",
+  "maqetta/AppStates",
+  "dijit/MenuBar",
+  "dijit/PopupMenuBarItem",
+  "dijit/MenuItem",
+  "shapes/Rectangle",
+  "dijit/Menu",
+  "dojox/mobile",
+  "dojox/mobile/deviceTheme",
+  "dojox/mobile/compat",
+  "dojox/mobile/Container",
+  "dijit/layout/ContentPane"
+]);
+</script>
+<link rel="stylesheet" href="widgets/ShortMenuWidget/css/ShortMenuWidget.css" type="text/css" media="screen"/>
+<style>@import "themes/claro/document.css";@import "themes/claro/claro.css";@import "app.css";@import "lib/shapes/shapes.css";@import "widgets/HomeWidget/css/homeWidget.css";
+</style>
+<script type="text/javascript" src="app.js"></script>
+</head>
+<body data-maq-flow-layout="true" data-maq-comptype="desktop" data-maq-ws="collapse" class="claro" data-maq-appstates="{}" id="myapp">
+ <div id="leftArrow">
+  <img id="lArr" src="img/flecheLeft.png"/>
+ </div>
+ <div id="rightArrow">
+  <img id="rArr" src="img/flecheRight.png"/>
+ </div>
+ <div id="shortMenuContainer"></div>
+ <div id="slideContainer"></div>
+ <div id="sideMenuContainer">
+  <img id="logo" src="img/logoOmbree.png"/>
+ </div>
+ </body>
+ </html>

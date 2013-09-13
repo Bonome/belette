@@ -1,0 +1,153 @@
+/*  redimmensionné en échappant la partie droite sur petit écran
+	espacer les titres
+ */
+@font-face {
+	font-family: Amon;
+	src: url('../../../style/Amon.ttf');
+}
+@font-face{
+	font-family: AmonIE;
+	src: url('../../../style/Amon.eot');
+}
+@font-face{
+	font-family: Fruit;
+	src: url('../../../style/Fruit.ttf');
+}
+@font-face{
+	font-family: FruitIE;
+	src: url('../../../style/Fruit.eot');
+}
+body{
+	font-family: Fruit, FruitIE;
+}
+.homeTitre{
+	font-family: Amon, AmonIE;
+}
+#leftSide{
+	width: 61%;
+	height: 100%;
+	left: 0px;
+}
+#rightSide{
+	width: 40%;
+	height: 100%;
+	left: 61%;
+}
+#right_side img{
+	right: 0px;
+	top: 0px;
+	width: 100%;
+	visibility: visible;
+	width: 100%;
+	min-width: 160px;
+	max-width: 1920px;
+}
+#firstLine {
+	width:100%;
+}
+#firstLine h1{
+	color: #e8e8e8;
+	font-size: 550%;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	width: 66%;
+	display: inline-block;
+}
+#micro{
+/*	background-image: url("../images/micro.png");*/
+	display: inline-block;
+	width: 33%;
+	padding-top: 10px;
+}
+#secondLine{
+	top: 10%;
+	width: 100%;
+}
+#secondLine h1{
+	width: 60%;
+	display: inline-block;
+	color: #e8e8e8;
+	font-size: 500%;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 3%;
+}
+#quatreLogos{
+	/*background-image: url("../images/quatreLogos.png");*/
+	display: inline-block;
+	width: 36%;
+}
+quatreLogos img{
+	width: 90%;
+}
+#thirdBlock{
+	top: 20%;
+	height: 80%;
+	width: 100%;
+}
+#firstColumn{
+	width: 32%;
+	left: 0%;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+#firstColumn h1{
+	font-size: 550%;
+	margin-left: 3%;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #e8e8e8;
+}
+h2{
+	/*font-size: 79%;*/
+	font-size: 110%;
+	font-weight: bold !important;
+	font-family: Fruit, FruitIE;
+}
+p{
+	/*font-size: 60%;*/
+	font-size: 90%;
+	font-family: Fruit, FruitIE;
+}
+#secondColumn li{
+	/*font-size: 60%;*/
+	font-size: 90%;
+	font-family: Fruit, FruitIE;
+}
+h3{
+	/*font-size: 70%;*/
+	font-size: 100%;
+	font-weight: bold;
+	font-family: Fruit, FruitIE;
+}
+#enceinte{
+	width: 80%;
+	margin-left: 10%;
+}
+#secondColumn{
+	width: 32%%;
+	left: 33%%;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+#secondColumn h2{
+	color: #ea690b;
+}
+#secondColumn mark{
+	color: #ea690b;
+	background: none;
+}
+
+#logoPrincipe{
+	width: 90%;
+}
+#thirdColum{
+	width: 32%;
+	left: 66%;
+	height: 100%;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+#casque{
+	width: 80%;
+}

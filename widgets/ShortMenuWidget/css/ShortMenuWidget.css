@@ -1,0 +1,29 @@
+.squareMenu{
+	position: absolute; 
+	z-index: 2; 
+	top: 10px;    
+	width: 22px !important; 
+	height: 14px !important;  
+	background-color: #D3D3D3;
+}
+.selected{
+	background-color: #EA690B;
+}
+#sqHome{
+	left:10px;
+}
+#sqProject{
+	left:37px;
+}
+#sqRenacle{
+	left:64px;
+}
+#sqBio{
+	left:91px;
+}
+#sqLink{
+	left:118px;
+}
+#sqContact{
+	left:145px;
+}

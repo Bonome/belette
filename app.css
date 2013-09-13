@@ -1,0 +1,180 @@
+/*
+ * This file is provided for application-specific style rules.
+ *
+ * By default, Maqetta includes this CSS file within HTML pages
+ * authored in Maqetta.
+ *
+ * This file is typically used to override style rules found in
+ * theme CSS files. For example, suppose the theme CSS file has:
+ *
+ * .claro .dijitButton .dijitButtonNode {
+ *		padding:2px 4px 4px 4px;
+ * }
+ *
+ * But for your application suppose you want to tighten the padding
+ * for buttons. Then, you might include the following style rule
+ * in this file (assuming that you accept Maqetta's default where
+ * id "myapp" is present on the BODY element, and assuming
+ * that you are using the "claro" theme):
+ *
+ * #myapp.claro .dijitButton .dijitButtonNode {
+ *		padding:1px 3px 3px 3px;
+ * }
+ *
+ * Because of CSS precedence rules (see [1]), the above style rule
+ * (which begins with #myapp.claro) will "win the cascade" versus 
+ * the style rule from the theme CSS file due to the use of the
+ * ID select (#myapp), which has higher specificity than the class
+ * selectors used throughout the Claro theme.
+ *
+ * [1] http://www.w3.org/TR/CSS21/cascade.html#cascade
+ */
+@font-face {
+	font-family: Amon;
+	src: url('style/Amon.ttf');
+}
+@font-face{
+font-family: AmonIE;
+src: url('style/Amon.eot');
+}
+@font-face{
+font-family: Fruit;
+src: url('style/Fruit.ttf');
+}
+@font-face{
+font-family: FruitIE;
+src: url('style/Fruit.eot');
+}
+html,body {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+div{
+	display: block;
+	position: absolute;
+} 
+#navBar{
+	bottom: 0px;
+	width: 100%;
+}
+#popupMenu{
+	bottom: 30px;
+}
+#logo{
+	width: 202px;
+	height: 202px;
+}
+#sideMenuContainer{
+	height: 100%;
+	background-image: url("img/fondMenuBlanc.png");
+	background-position: left bottom;
+}
+#shortMenuContainer, #slideContainer{
+	height: 100%;
+	width: 100%;
+}
+.puceMenu .dijitMenuItemSelected{
+	background-image: url("img/puceMenu.png");
+	width: 13px; 
+	height: 13px;
+}
+.puceMenu{
+	width: 13px; 
+	height: 13px;
+}
+#dijit_MenuBar_0.dijitMenuActive{
+	width: 202px;
+}
+.dijitMenuItem{
+	width: 180px;
+}
+.dijitMenuBar{
+	font-family: Amon, AmonIE; /* no .ttf */
+	color: #929292 !important;
+	font-size: 25px;
+	background: none !important;
+	border: none !important;
+}
+#IdMenuHome_text{
+	color: #929292 !important;
+	padding-left: 32px !important;
+}
+#IdMenuProject_text{
+	color: #929292 !important;
+	padding-left: 32px !important;
+}
+#IdMenuRenacle_text{
+	color: #929292 !important;
+	padding-left: 32px !important;
+}
+#IdMenuBio_text{
+	color: #929292 !important;
+	padding-left: 32px !important;
+}
+#IdMenuLink_text{
+	color: #929292 !important;
+	padding-left: 32px !important;
+}
+#IdMenuContact_text{
+	color: #929292 !important;
+	padding-left: 32px !important;
+}
+#dijit_MenuBar_1{
+	font-family: Fruit, FruitIE; /* no .ttf */
+	background-image: url("img/fondMenuSurvol.png") !important;
+	margin-top: 6px;
+	margin-left: -10px;
+}
+.dijitMenuItemSelected{
+	background-image: url("img/fondMenuSurvol.png") !important;
+	color: white !important;
+}
+.dijitMenuItemHover{
+	background-color: #d55800 !important;
+	color: white !important;
+}
+#dijit_MenuBar_1 .dijitMenuItemHover, #dijit_MenuBar_1 .dijitMenuItemHover{
+	background-color: #d55800 !important;
+	color: white !important;
+}
+#dijit_MenuBar_1 .dijitMenuItemLabel{
+	width: 200px;
+}
+#dijitMenuPassive{
+	padding-right: 11px !important;
+}
+#IdMenuProject1_text{
+	color: white !important;
+	font-size: 12px;
+}
+#IdMenuProject2_text{
+	color: white !important;
+	font-size: 12px;
+}
+#IdMenuProject3_text{
+	color: white !important;
+	font-size: 12px;
+}
+#IdMenuProject4_text{
+	color: white !important;
+	font-size: 12px;
+}
+#IdMenuProject5_text{
+	color: white !important;
+	font-size: 12px;
+}
+#IdMenuProject6_text{
+	color: white !important;
+	font-size: 12px;
+}
+.dijitReset .dijitMenuItemIconCell{
+	padding-left: 40px !important;
+}
+#leftArrow{
+	display: none;
+}
+#rightArrow{
+	display: none;
+}
