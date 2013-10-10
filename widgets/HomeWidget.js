@@ -53,6 +53,10 @@ define(["dojo/dom", "dojo/dom-construct", "dojo/window", "dojo/_base/declare","d
 				domStyle.set(domNode,"top", "0px");
 				domStyle.set(domNode,"left", "0px");
 				domStyle.set(domNode,"z-index", "-1");
+				domStyle.set(domNode.parent,"bottom", "0px");
+				domStyle.set(domNode.parent,"top", "0px");
+				domStyle.set(domNode.parent,"right", "0px");
+				domStyle.set(domNode.parent,"left", "0px");
 			}
         });
 });
