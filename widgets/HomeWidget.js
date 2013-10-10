@@ -46,8 +46,10 @@ define(["dojo/dom", "dojo/dom-construct", "dojo/window", "dojo/_base/declare","d
 			    // smoothes out the mouseenter/leave event animations
 			    domStyle.set(domNode, "backgroundColor", "white");
 
-				domStyle.set(domNode,"width",(vs.w-this.widthMenu)+"px");
-				domStyle.set(domNode,"height",(vs.h-this.heightHeader)+"px");
+				//domStyle.set(domNode,"width",(vs.w-this.widthMenu)+"px");
+				//domStyle.set(domNode,"height",(vs.h-this.heightHeader)+"px");
+				domStyle.set(domNode,"bottom","0px");
+                domStyle.set(domNode,"right","0px");
 				domStyle.set(domNode,"top", "0px");
 				domStyle.set(domNode,"left", "0px");
 				domStyle.set(domNode,"z-index", "-1");
