@@ -29,6 +29,14 @@ define(["dojo/dom", "dojo/dom-construct", "dojo/window", "dojo/_base/declare","d
             // Colors for our background animation
             baseBackgroundColor: "#fff",
             mouseBackgroundColor: "#def",
+            
+            resizeSlide: function(){
+              var domNode = this.domNode;
+              domStyle.set(domNode,"top", "0px");
+              domStyle.set(domNode,"bottom", "0px");
+              domStyle.set(domNode,"left", this.widthMenu+"px");
+              domStyle.set(domNode,"right", "0px");
+            },
 
 			postCreate: function(){
     			// Get a DOM node reference for the root of our widget
@@ -45,10 +53,7 @@ define(["dojo/dom", "dojo/dom-construct", "dojo/window", "dojo/_base/declare","d
 				//domStyle.set(domNode,"height",(vs.h-this.heightHeader)+"px");
 				//domStyle.set(domNode,"bottom", -1*vs.h+"px");
 				//domStyle.set(domNode,"right", this.screenNumber*-1*vs.w+((this.screenNumber-1)*this.widthMenu)+"px");
-				domStyle.set(domNode,"top", "0px");
-				domStyle.set(domNode,"bottom", "0px");
-				domStyle.set(domNode,"left", this.widthMenu+"px");
-				domStyle.set(domNode,"right", "0px");
+				this.resizeSlide();
 				domStyle.set(domNode,"z-index", "-1");
 				domStyle.set("leftArrow", "left", this.widthMenu+"px");
 				domStyle.set("leftArrow", "top", (((vs.h-this.heightHeader)/2)-100)+"px");
