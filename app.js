@@ -7,16 +7,22 @@ var pSubMenu2 = null;
 //variables
 var widthMenu = "202";
 
-require(["dijit/focus","dojox/image", "dojo/window",  "dojo/on", "dojo/fx", "dojo/dom", "dojo/dom-geometry", "dojo/dom-style",
-"dojo/dom-class", "widgets/HomeWidget", "widgets/SlideWidget", 
-"widgets/ProjectWidget", "widgets/RenacleWidget", "widgets/BioWidget", "widgets/LinkWidget", "widgets/ContactWidget", "widgets/ShortMenuWidget", 
-"dijit/MenuBar", "dijit/MenuBarItem", "dijit/PopupMenuBarItem", "dijit/Menu", "dijit/MenuItem", "dijit/DropDownMenu", "dojox/mobile/Container", "dojo/dom-construct",
-"dojo/ready","dojo/domReady!"],
-function(focusUtil,dimg, win, on, coreFx, dom, domGeom, domStyle,
-domClass, HomeWidget, SlideWidget, 
-ProjectWidget, RenacleWidget, BioWidget, LinkWidget, ContactWidget, ShortMenuWidget,  
-MenuBar, MenuBarItem, PopupMenuBarItem, Menu, MenuItem, DropDownMenu,Container,domConstruct,
-ready){
+require(["dojo/_base/window","dijit/focus","dojox/image", "dojo/window",  
+         "dojo/on", "dojo/fx", "dojo/dom", "dojo/dom-geometry", "dojo/dom-style",
+          "dojo/dom-class", "widgets/HomeWidget", "widgets/SlideWidget", 
+          "widgets/ProjectWidget", "widgets/RenacleWidget", 
+          "widgets/BioWidget", "widgets/LinkWidget", "widgets/ContactWidget", "widgets/ShortMenuWidget", 
+          "dijit/MenuBar", "dijit/MenuBarItem", "dijit/PopupMenuBarItem", "dijit/Menu", "dijit/MenuItem", 
+          "dijit/DropDownMenu", "dojox/mobile/Container", "dojo/dom-construct",
+          "dojo/ready","dojo/domReady!"],
+function(bwin,focusUtil,dimg, win, on, 
+    coreFx, dom, domGeom, domStyle,
+    domClass, HomeWidget, SlideWidget, 
+    ProjectWidget, RenacleWidget, BioWidget, 
+    LinkWidget, ContactWidget, ShortMenuWidget,  
+    MenuBar, MenuBarItem, PopupMenuBarItem, Menu, MenuItem, 
+    DropDownMenu,Container,domConstruct,
+    ready){
 	ready(function() { 
         focusUtil.focus(dom.byId("IdMenuHome")); 
     });
@@ -114,26 +120,26 @@ pMenuBar = new MenuBar({});
 ///////////////
 	// Slider
 	var slideContainer = dom.byId("slideContainer");
-	var widget = new SlideWidget().placeAt(slideContainer);
+	widSlideContainer = new SlideWidget().placeAt(slideContainer);
 
 	//frame1
 	var frame1 = dom.byId("frame1");
-	var widHome = new HomeWidget().placeAt(frame1);
+	widHome = new HomeWidget().placeAt(frame1);
 	//frame2
 	var frame2 = dom.byId("frame2");
-	var widProject = new ProjectWidget().placeAt(frame2);
+	widProject = new ProjectWidget().placeAt(frame2);
 	//frame3
 	var frame3 = dom.byId("frame3");
-	var widRenacle = new RenacleWidget().placeAt(frame3);
+	widRenacle = new RenacleWidget().placeAt(frame3);
 	//frame4
 	var frame4 = dom.byId("frame4");
-	var widBio = new BioWidget().placeAt(frame4);
+	widBio = new BioWidget().placeAt(frame4);
 	//frame5
 	var frame5 = dom.byId("frame5");
-	var widLink = new LinkWidget().placeAt(frame5);
+	widLink = new LinkWidget().placeAt(frame5);
 	//frame6
 	var frame6 = dom.byId("frame6");
-	var widContact = new ContactWidget().placeAt(frame6);
+	widContact = new ContactWidget().placeAt(frame6);
 	//frame7
 //	var frame7 = dom.byId("frame7");
 //	var widHome = new HomeWidget().placeAt(frame);		
@@ -295,6 +301,13 @@ pMenuBar = new MenuBar({});
 	
 	on(dom.byId("IdMenuContact"), "click", function(){
 		clickContact();
+	});
+	
+	on(bwin.global, 'resize', function() {
+	    console.log('window on resize');
+	    window.widSlideContainer.resizeSlide();
+	    //window.widProject.resizeFrame();
+        
 	});
 	
 });

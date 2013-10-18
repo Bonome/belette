@@ -2,108 +2,44 @@
 <html>
 <head>
 <meta charset="utf-8"/>
-<title>Untitled</title>
-<script type="text/javascript" data-dojo-config="'async':true,'parseOnLoad':true,'packages':[{'name':'maqetta','location':'../../maqetta'},{'name':'gridx','location':'../gridx'},{'name':'clipart','location':'../../clipart'},{'name':'shapes','location':'../../shapes'},{'name':'maqettaSamples','location':'../../../samples'},{'name':'zazl','location':'../../zazl'},{'name':'widgets','location':'../../../widgets'}]" src="lib/dojo/dojo/dojo.js"></script>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Pauline Desgrandchamp</title>
+<script type="text/javascript" src="lib/dojo/dojo/dojo.js" data-dojo-config="'parseOnLoad':true,'async':true,'packages':[{'name':'maqetta','location':'../../maqetta'},{'name':'gridx','location':'../gridx'},{'name':'clipart','location':'../../clipart'},{'name':'shapes','location':'../../shapes'},{'name':'maqettaSamples','location':'../../../samples'},{'name':'zazl','location':'../../zazl'},{'name':'widgets','location':'../../../widgets'},{'name':'LinkWidget','location':'http://app.maqetta.org/maqetta/user/BX/ws/workspace/test/WebContent/widgets/LinkWidget'},{'name':'RenacleWidget','location':'http://app.maqetta.org/maqetta/user/BX/ws/workspace/test/WebContent/widgets/RenacleWidget'},{'name':'SlideWidget','location':'http://app.maqetta.org/maqetta/user/BX/ws/workspace/test/WebContent/widgets/SlideWidget'},{'name':'BioWidget','location':'http://app.maqetta.org/maqetta/user/BX/ws/workspace/test/WebContent/widgets/BioWidget'},{'name':'ShortMenuWidget','location':'http://app.maqetta.org/maqetta/user/BX/ws/workspace/test/WebContent/widgets/ShortMenuWidget'},{'name':'HomeWidget','location':'http://app.maqetta.org/maqetta/user/BX/ws/workspace/test/WebContent/widgets/HomeWidget'},{'name':'ProjectWidget','location':'http://app.maqetta.org/maqetta/user/BX/ws/workspace/test/WebContent/widgets/ProjectWidget'},{'name':'ContactWidget','location':'http://app.maqetta.org/maqetta/user/BX/ws/workspace/test/WebContent/widgets/ContactWidget'},{'name':'SideMenuWidget','location':'http://app.maqetta.org/maqetta/user/BX/ws/workspace/test/WebContent/widgets/SideMenuWidget'}],'themeMap':[['Android','',['themes/android/android.css']],['BlackBerry','',['themes/blackberry/blackberry.css']],['iPad','',['themes/ipad/ipad.css']],['iPhone','',['themes/iphone/iphone.css']],['.*','',['themes/iphone/iphone.css']]],'mblThemeFiles':[], mblLoadCompatPattern: /\/test\/WebContent\/themes\/.*\.css$/"></script>
 <script type="text/javascript">
 require([
   "dijit/dijit",
   "dojo/parser",
   "maqetta/space",
   "maqetta/AppStates",
-  "dijit/form/Button",
-  "dijit/form/Textarea"
+  "dijit/MenuBar",
+  "dijit/PopupMenuBarItem",
+  "dijit/MenuItem",
+  "shapes/Rectangle",
+  "dijit/Menu",
+  "dojox/mobile",
+  "dojox/mobile/deviceTheme",
+  "dojox/mobile/compat",
+  "dojox/mobile/Container",
+  "dijit/layout/ContentPane"
 ]);
 </script>
-<style type="text/css" translate="none">
-#background {
-    bottom : 0;
-    display : block;
-    left : 0;
-    overflow : hidden;
-    position : fixed;
-    top : 0;
-    width : 100%;
-    z-index : -3;
-}
-
-#background.horizontal img {
-    left : 0;
-    top : 0;
-    visibility : visible;
-    width : 100%;
-    min-width : 1600px;
-    max-width : 1920px;
-    width : expression(document.getElementById('parent').offsetWidth < 1600? '1600px' : '1920px');
-}
-
-#logo {
-    left : 40px;
-    position : absolute;
-    top : 40px;
-    z-index : 0;
-}
-
-#siteEnConstruction {
-    left : 40px;
-    position : absolute;
-    top : 330px;
-    z-index : 0;
-}
-
-#texte {
-    font-family : Frutiger;
-    font-size : 13px;
-    font-weight : bold;
-    left : 40px;
-    position : absolute;
-    top : 400px;
-    z-index : 0;
-    color : white;
-}
-
-#logoHomme {
-    left : 350px;
-    position : absolute;
-    top : 400px;
-    z-index : 0;
-}
-
-a#link:link,  a#link:visited,  a#link:hover,  a#link:hover {
-    text-decoration : none;
-    color : white;
-}
-
-a {
-    color : white;
-}
-
+<link rel="stylesheet" href="widgets/ShortMenuWidget/css/ShortMenuWidget.css" type="text/css" media="screen"/>
+<link rel="stylesheet" href="widgets/SlideWidget/css/SlideWidget.css" type="text/css" media="screen"/>
+<style>@import "themes/claro/document.css";@import "themes/claro/claro.css";@import "app.css";@import "lib/shapes/shapes.css";@import "widgets/HomeWidget/css/homeWidget.css";
 </style>
 <script type="text/javascript" src="app.js"></script>
 </head>
-<body dvFlowLayout="true" data-davinci-ws="collapse" style="overflow: hidden;" data-maq-flow-layout="true" data-maq-ws="collapse" data-maq-appstates="{'states':['other']}" class="claro" id="myapp">
- <div id="background" class="horizontal">
-  <img style="margin-left: 0px;" src="http://www.pauline-desgrandchamp.com/img/page_temporaire.jpg"/>
+<body data-maq-flow-layout="true" data-maq-comptype="desktop" data-maq-ws="collapse" class="claro" data-maq-appstates="{}" id="myapp">
+ <div id="leftArrow">
+  <img id="lArr" src="img/flecheLeft.png"/>
  </div>
- <div id="logo">
-  <img src="http://www.pauline-desgrandchamp.com/img/logo.png"/>
+ <div id="rightArrow">
+  <img id="rArr" src="img/flecheRight.png"/>
  </div>
- <div id="siteEnConstruction">
-  <img src="http://www.pauline-desgrandchamp.com/img/SiteEnConstruction.png"/>
- </div>
- <div id="texte">
-    <span class="title">Doctorante au laboratoire ACCRA<br/>Université De Strasbourg</span>
-    <p class="adresse">
-      13 rue du Faubourg National<br/>67000 Strasbourg<br/>06 89 22 56 62</p>
-   <span class="link"><a href="mailto:contact@pauline-desgrandchamp.com">
-      contact@pauline-desgrandchamp.com</a>
-    </span>
-    <br/>
-   <span class="link"><a href="www.pauline-desgrandchamp.com">
-      www.pauline-desgrandchamp.com</a>
-    </span>
- </div>
- <div id="logoHomme">
-  <img src="http://www.pauline-desgrandchamp.com/img/logoHomme.png"/>
+ <div id="shortMenuContainer"></div>
+ <div id="slideContainer"></div>
+ <div id="sideMenuContainer">
+  <img id="logo" src="img/logoOmbree.png"/>
  </div>
  </body>
-</html>
+ </html>
