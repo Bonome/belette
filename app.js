@@ -29,10 +29,10 @@ function(request_json,bwin,focusUtil,dimg, win, on,
 //      texts_accueil = texts;
 //    });
 	ready(function() { 
+		dimg.preload(["img/loader.jpg"]);
         focusUtil.focus(dom.byId("IdMenuHome")); 
     });
     
-	dimg.preload(["img/loader.jpg"]);
 
 
 	//constantes

@@ -56,10 +56,12 @@ div{
 	position: absolute;
 }
 #loader{
+	background-image: url("img/loader.jpg")
 	top: 0px;
 	bottom: 0px;
 	left: 0px;
 	right: 0px;
+	z-index: 10;
 }
 #loader_img{
 	top: 0px;
