@@ -24,9 +24,9 @@ body{
 	font-family: Amon, AmonIE;
 }
 #leftSide{
-	width: 61%;
+	width: 59%;
 	height: 100%;
-	left: 0px;
+	left: 2%;
 }
 #rightSide{
 	width: 40%;
@@ -47,7 +47,8 @@ body{
 }
 #firstLine h1{
 	color: #e8e8e8;
-	font-size: 550%;
+	font-size: 100pt;
+	font-weight: normal;
 	margin-top: 0px;
 	margin-bottom: 0px;
 	width: 66%;
@@ -67,7 +68,8 @@ body{
 	width: 60%;
 	display: inline-block;
 	color: #e8e8e8;
-	font-size: 500%;
+	font-size: 88pt;
+	font-weight: normal;
 	margin-top: 0px;
 	margin-bottom: 0px;
 	margin-left: 3%;
@@ -92,31 +94,28 @@ quatreLogos img{
 	padding-right: 10px;
 }
 #firstColumn h1{
-	font-size: 550%;
+	font-size: 113pt;
+	font-weight: normal;
 	margin-left: 3%;
 	margin-top: 0px;
 	margin-bottom: 0px;
 	color: #e8e8e8;
 }
 h2{
-	/*font-size: 79%;*/
-	font-size: 110%;
-	font-weight: bold !important;
+	font-size: 12pt;
+	font-weight: bold;
 	font-family: Fruit, FruitIE;
 }
 p{
-	/*font-size: 60%;*/
-	font-size: 90%;
+	font-size: 10pt;
 	font-family: Fruit, FruitIE;
 }
 #secondColumn li{
-	/*font-size: 60%;*/
-	font-size: 90%;
+	font-size: 10pt;
 	font-family: Fruit, FruitIE;
 }
 h3{
-	/*font-size: 70%;*/
-	font-size: 100%;
+	font-size: 11pt;
 	font-weight: bold;
 	font-family: Fruit, FruitIE;
 }

@@ -7,7 +7,7 @@ var pSubMenu2 = null;
 //variables
 var widthMenu = "202";
 
-require(["dojo/_base/window","dijit/focus","dojox/image", "dojo/window",  
+require(["dojo/request", "dojo/_base/window","dijit/focus","dojox/image", "dojo/window",  
          "dojo/on", "dojo/fx", "dojo/dom", "dojo/dom-geometry", "dojo/dom-style",
           "dojo/dom-class", "widgets/HomeWidget", "widgets/SlideWidget", 
           "widgets/ProjectWidget", "widgets/RenacleWidget", 
@@ -15,7 +15,7 @@ require(["dojo/_base/window","dijit/focus","dojox/image", "dojo/window",
           "dijit/MenuBar", "dijit/MenuBarItem", "dijit/PopupMenuBarItem", "dijit/Menu", "dijit/MenuItem", 
           "dijit/DropDownMenu", "dojox/mobile/Container", "dojo/dom-construct",
           "dojo/ready","dojo/domReady!"],
-function(bwin,focusUtil,dimg, win, on, 
+function(request_json,bwin,focusUtil,dimg, win, on, 
     coreFx, dom, domGeom, domStyle,
     domClass, HomeWidget, SlideWidget, 
     ProjectWidget, RenacleWidget, BioWidget, 
@@ -23,20 +23,26 @@ function(bwin,focusUtil,dimg, win, on,
     MenuBar, MenuBarItem, PopupMenuBarItem, Menu, MenuItem, 
     DropDownMenu,Container,domConstruct,
     ready){
+//    request_json("http://localhost/belette/json/accueil_text.json", {
+//      handleAs: "json"
+//    }).then(function(texts){
+//      texts_accueil = texts;
+//    });
 	ready(function() { 
         focusUtil.focus(dom.byId("IdMenuHome")); 
     });
+    
 	//dimg.preload(["http://4.bp.blogspot.com/_hk2dup6KMsI/SrZghr1NbXI/AAAAAAAAANE/Bn_MUgbXfGg/s1600/long_tailed_weasel.jpg"]);
 
 
 	//constantes
-	const intHome = 	1;
-	const intProject = 	2;
-	const intRenacle =	3;
-	const intBio = 		4;
-	const intLink = 	5;
-	const intThanks = 	6;
-	const intContact =	7;
+//	const intHome = 	1;
+//	const intProject = 	2;
+//	const intRenacle =	3;
+//	const intBio = 		4;
+//	const intLink = 	5;
+//	const intThanks = 	6;
+//	const intContact =	7;
 
 	//variables
 	var screenRef = 1;
@@ -80,12 +86,13 @@ pMenuBar = new MenuBar({});
         pSubMenu2.addChild(new MenuItem({
             label: "Participations",
             iconClass: "puceMenu",
-			id: "IdMenuProject6"
+			id: "IdMenuProject6",
         }));
 		
         pMenuBar.addChild(new MenuBarItem({
             label: "Projets",
-			id: "IdMenuProject"
+			id: "IdMenuProject",
+			
         }));
 
 		pMenuBar.addChild(new MenuBarItem({
@@ -156,21 +163,26 @@ pMenuBar = new MenuBar({});
 ///CONTROLLER///
 ////////////////
 
-	function slide(node, horizontal, vertical){
+	function slide(node, horizontal, vertical, ref, duration){
+	  if(duration != 0){
+	    duration = 1000;
+	  }
     	coreFx.slideTo({
+    	    duration: duration,
       		node: node,
       		top: (domGeom.getMarginBox(node).t + vertical).toString(),
-      		left: ( horizontal).toString(),//domGeom.getMarginBox(node).l +
+      		left: (horizontal).toString(),//domGeom.getMarginBox(node).l +
       		unit: "px",
 			onEnd: function(){
         		domStyle.set("leftArrow", "display", "none");
 				domStyle.set("rightArrow", "display", "none");
+				domClass.add(refToIdFrame(ref), "focused");
       		}
     	}).play();
   	};
 
-	function slideMain(horizontal){
-		slide("mainSlider",horizontal,0);
+	function slideMain(horizontal, ref, duration){
+		slide("mainSlider",horizontal,0, ref, duration);
 	};
 
 	function slideMainLeft(){
@@ -178,7 +190,8 @@ pMenuBar = new MenuBar({});
 		slideMain(-1*vs.w-widthMenu);
 	};
 
-	function deltaSlide(ref){
+	function deltaSlide(ref, duration){
+	    removeAllClassFocusedOnFrames();
 		var standardSlide = win.getBox().w-widthMenu;
 		var coef = ref-1;
 		if(ref>screenRef){//to right
@@ -186,72 +199,244 @@ pMenuBar = new MenuBar({});
 		}else if(ref<screenRef){//to left
 			domStyle.set("leftArrow", "display", "block");
 		}
-		slideMain(widthMenu-(coef*standardSlide));
+		slideMain(widthMenu-(coef*standardSlide), ref, duration);
 		screenRef = ref;
 	};
 	
+	function refToIdFrame(ref){
+	  if(ref == 1){
+	    return "homeWidget";
+	  }else if (ref == 2){
+	    return "projectWidget";
+	  }else if (ref == 3){
+        return "renacleWidget";
+      }else if (ref == 4){
+        return "bioWidget";
+      }else if (ref == 5){
+        return "linkWidget";
+      }else if (ref == 6){
+        return "contactWidget";
+      }
+	  
+	};
+	
+	function pathToId(path){
+	     if(path == "home" || path == ""){
+	        return 1;
+	      }else if (path == "project"){
+	        return 2;
+	      }else if (path == "renacle"){
+	        return 3;
+	      }else if (path == "bio" || path == "biography"){
+	        return 4;
+	      }else if (path == "link" || path == "links"){
+	        return 5;
+	      }else if (path == "contact"){
+	        return 6;
+	      }
+	      
+	    };
+	
+	//remove selected class 
 	function removeAllClassSelected(){
-		domClass.remove("sqHome", "selected");
+		//class shortMenu
+	    domClass.remove("sqHome", "selected");
 		domClass.remove("sqProject", "selected");
 		domClass.remove("sqRenacle", "selected");
 		domClass.remove("sqBio", "selected");
 		domClass.remove("sqLink", "selected");
 		domClass.remove("sqContact", "selected");
+		
+		//class side menu item
+		domClass.remove("IdMenuHome", "sideMenuItemSelected");
+		domClass.remove("IdMenuProject", "sideMenuItemSelected");
+        domClass.remove("IdMenuRenacle", "sideMenuItemSelected");
+        domClass.remove("IdMenuBio", "sideMenuItemSelected");
+        domClass.remove("IdMenuLink", "sideMenuItemSelected");
+        domClass.remove("IdMenuContact", "sideMenuItemSelected");
+        
+        
 	};
+	
+	//class project sub menu item
+	function removeAllClassSelectedFromProjectSubMenu(){
+      domClass.remove("IdMenuProject1", "sideProjectSubMenuItemSelected");
+      domClass.remove("IdMenuProject2", "sideProjectSubMenuItemSelected");
+      domClass.remove("IdMenuProject3", "sideProjectSubMenuItemSelected");
+      domClass.remove("IdMenuProject4", "sideProjectSubMenuItemSelected");
+      domClass.remove("IdMenuProject5", "sideProjectSubMenuItemSelected");
+      domClass.remove("IdMenuProject6", "sideProjectSubMenuItemSelected");
+	}
+	
+	function removeAllClassFocusedOnFrames(){
+      domClass.remove("homeWidget", "focused");
+      domClass.remove("projectWidget", "focused");
+      domClass.remove("renacleWidget", "focused");
+      domClass.remove("bioWidget", "focused");
+      domClass.remove("linkWidget", "focused");
+      domClass.remove("contactWidget", "focused");
+  };
 
 	function hideSubMenuProject() {
 		//domStyle.set("IdMenuProject", "background-image", "none");
 		//domStyle.set("IdMenuProject_text", "color", "#929292 !important");
-		domStyle.set("IdMenuRenacle", "margin-top", "0px");
-		domStyle.set("dijit_MenuBar_1", "display", "none");
+		//domStyle.set("IdMenuRenacle", "margin-top", "0px");
+	    if(screenRef == 2){
+	      slideMenuOnProject("0");
+	    }
+		//domStyle.set("dijit_MenuBar_1", "display", "none");
 	};
 
 	//click home
-	function clickHome() {
-		deltaSlide(1);
-		hideSubMenuProject();
+	function clickHome(duration) {	  
+	    hideSubMenuProject();
+		deltaSlide(1, duration);
+        var stateObj = { pauline: "home" };
+        history.pushState(stateObj, "Pauline Desgrandchamp", "");
 		removeAllClassSelected();
-		domClass.add("sqHome", "selected");
+		domClass.add("IdMenuHome","sideMenuItemSelected");
+        domClass.add("sqHome", "selected");
 	};
 	//click project
-	function clickProject() {
+	function clickProject(duration) {
 		removeAllClassSelected();
-		var idMenuRenacle = dom.byId("IdMenuRenacle");
-		domClass.add("sqProject", "selected");
-		domStyle.set(idMenuRenacle, "margin-top", "233px");
-//		domStyle.set("IdMenuProject", "background-image", "url('img/fondMenuSurvol.png') !important");
-//		domStyle.set("IdMenuProject_text", "color", "white");
-		domStyle.set("dijit_MenuBar_1", "display", "block");
-		deltaSlide(2);
+		domClass.add("IdMenuProject","sideMenuItemSelected");
+        domClass.add("sqProject", "selected");
+		slideMenuOnProject("209");
+		deltaSlide(2, duration);
+        var stateObj = { pauline: "project" };
+		history.pushState(stateObj, "Projets - Pauline Desgrandchamp", "project");
 	};
 	//click Renacle
-	function clickRenacle() {
-		deltaSlide(3);
-		hideSubMenuProject();
+	function clickRenacle(duration) {
+	    hideSubMenuProject();
+		deltaSlide(3, duration);
+        var stateObj = { pauline: "renacle" };
+		history.pushState(stateObj, "Ça Renacle - Pauline Desgrandchamp", "renacle");
 		removeAllClassSelected();
-		domClass.add("sqRenacle", "selected");
+		domClass.add("IdMenuRenacle","sideMenuItemSelected");
+        domClass.add("sqRenacle", "selected");
 	};
 	//click Bio
-	function clickBio() {
-		deltaSlide(4);
-		removeAllClassSelected();
+	function clickBio(duration) {
+	    hideSubMenuProject();
+	    deltaSlide(4, duration);
+        var stateObj = { pauline: "biography" };
+        history.pushState(stateObj, "Biographie - Pauline Desgrandchamp", "biography");
+        removeAllClassSelected();
+        domClass.add("IdMenuBio","sideMenuItemSelected");
 		domClass.add("sqBio", "selected");
 	};
 	//click Link
-	function clickLink() {
-		deltaSlide(5);
-		hideSubMenuProject();
+	function clickLink(duration) {
+	    hideSubMenuProject();
+		deltaSlide(5, duration);
+        var stateObj = { pauline: "link" };
+        history.pushState(stateObj, "Liens - Pauline Desgrandchamp", "links");
 		removeAllClassSelected();
-		domClass.add("sqLink", "selected");
+		domClass.add("IdMenuLink","sideMenuItemSelected");
+        domClass.add("sqLink", "selected");
 	};
 	//click Contact
-	function clickContact() {
-		deltaSlide(6);
-		hideSubMenuProject();
+	function clickContact(duration) {
+	    hideSubMenuProject();
+		deltaSlide(6, duration);
+		var stateObj = { pauline: "contact" };
+        history.pushState(stateObj, "Contact - Pauline Desgrandchamp", "contact");
 		removeAllClassSelected();
+		domClass.add("IdMenuContact","sideMenuItemSelected");
 		domClass.add("sqContact", "selected");
 	};
-
+	//click on project Submenu item
+	function clickProjectSubMenuItem(idMenuItem){
+	  removeAllClassSelectedFromProjectSubMenu();
+	  domClass.add("IdMenuProject"+idMenuItem,"sideProjectSubMenuItemSelected");
+	};
+	//effect menu on project item click
+	function slideMenuOnProject(length){
+	   var duration = 300;
+	   if(length == 0){
+	     coreFx.combine([
+	                     coreFx.slideTo({
+	                       duration: duration,
+	                       node: "IdMenuRenacle",
+	                       top: length,
+	                       unit: "px",
+	                       onEnd: function(){
+	                       }
+	                     }),
+	                     coreFx.slideTo({
+	                       duration: duration,
+	                       node: "IdMenuBio",
+	                       top: length,
+	                       unit: "px",
+	                       onEnd: function(){
+	                       }
+	                     }),
+	                     coreFx.slideTo({
+	                       duration: duration,
+	                       node: "IdMenuLink",
+	                       top: length,
+	                       unit: "px",
+	                       onEnd: function(){
+	                       }
+	                     }),
+	                     coreFx.slideTo({
+	                       duration: duration,
+	                       node: "IdMenuContact",
+	                       top: length,
+	                       unit: "px",
+	                       onEnd: function(){
+	                       }
+	                     })
+	                     ,
+	                     coreFx.wipeOut({
+	                       duration: duration,
+	                       node: "dijit_MenuBar_1",
+	                     })
+	                 ]).play();
+	   }else{
+  	     coreFx.combine([
+             coreFx.slideTo({
+               duration: duration,
+               node: "IdMenuRenacle",
+               top: length,
+               unit: "px",
+               onEnd: function(){
+               }
+             }),
+             coreFx.slideTo({
+               duration: duration,
+               node: "IdMenuBio",
+               top: length,
+               unit: "px",
+               onEnd: function(){
+               }
+             }),
+             coreFx.slideTo({
+               duration: duration,
+               node: "IdMenuLink",
+               top: length,
+               unit: "px",
+               onEnd: function(){
+               }
+             }),
+             coreFx.slideTo({
+               duration: duration,
+               node: "IdMenuContact",
+               top: length,
+               unit: "px",
+               onEnd: function(){
+               }
+             })
+             ,
+             coreFx.wipeIn({
+               duration: duration,
+               node: "dijit_MenuBar_1",
+             })
+         ]).play();
+	   }
+	 }
 ////////////
 ///EVENTS///
 ////////////
@@ -302,12 +487,59 @@ pMenuBar = new MenuBar({});
 	on(dom.byId("IdMenuContact"), "click", function(){
 		clickContact();
 	});
+
+    on(dom.byId("IdMenuProject1"), "click", function(){
+      //console.log('click on menu item project 1');
+      clickProjectSubMenuItem(1);
+    });
+    on(dom.byId("IdMenuProject2"), "click", function(){
+      clickProjectSubMenuItem(2);
+    });
+    on(dom.byId("IdMenuProject3"), "click", function(){
+      clickProjectSubMenuItem(3);
+    });
+    on(dom.byId("IdMenuProject4"), "click", function(){
+      clickProjectSubMenuItem(4);
+    });
+    on(dom.byId("IdMenuProject5"), "click", function(){
+      clickProjectSubMenuItem(5);
+    });
+	on(dom.byId("IdMenuProject6"), "click", function(){
+	  clickProjectSubMenuItem(6);
+    });
 	
 	on(bwin.global, 'resize', function() {
 	    console.log('window on resize');
-	    window.widSlideContainer.resizeSlide();
-	    //window.widProject.resizeFrame();
-        
+	    deltaSlide(screenRef,0);
+	    window.widHome.resizeFrame();
+	    window.widProject.resizeFrame();
+	    window.widRenacle.resizeFrame();
+	    window.widBio.resizeFrame();
+	    window.widLink.resizeFrame();
+	    window.widContact.resizeFrame();
 	});
+	
+	on(bwin.global, 'onpopstate', function(event){
+	  alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
+	});
+	
+	window.onpopstate = function(event) {
+	  //alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
+	  var path = document.location.pathname.replace("/belette/", "");
+	  path = path.replace("/", "");
+	  if(path == "home" || path == ""){
+        clickHome(0);
+      }else if (path == "project"){
+        clickProject(0);
+      }else if (path == "renacle"){
+        clickRenacle(0);
+      }else if (path == "bio" || path == "biography"){
+        clickBio(0);
+      }else if (path == "link" || path == "links"){
+        clickLink(0);
+      }else if (path == "contact"){
+        clickContact(0);
+      }
+	};
 	
 });

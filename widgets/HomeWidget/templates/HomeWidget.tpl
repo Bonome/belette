@@ -1,8 +1,8 @@
 <div>
 <div id="leftSide">
  <div id="firstLine" class="homeTitre">
-  <h1>Construction</h1>
-  <img id="micro" src="widgets/HomeWidget/images/micro.png"/>
+  <h1>${!line1}</h1>
+<!--   <img id="micro" src="widgets/HomeWidget/images/micro.png"/> -->
  </div>
  <div id="secondLine" class="homeTitre">
   <img id="quatreLogos" src="widgets/HomeWidget/images/quatreLogos.png"/>
@@ -15,7 +15,7 @@
    <p>C’est dans la nature même de la matière sonore que l’on trouve l’explication. Le son est déjà espace en lui-même. Il se comprend en 3 dimensions, par sa durée, sa fréquence et son intensité.</p>
    <p>C’est un élément actif, toujours en mouvement. Utiliser comme outil scénographique, il a la faculté d’immerger l’expérimentateur dans le dispositif créatif.</p>
    <img id="enceinte" src="widgets/HomeWidget/images/enceinte.png"/>
-   <h1>Mouvement</h1>
+   <h1 class="homeTitre">Mouvement</h1>
   </div>
   <div id="secondColumn">
    <img id="logoPrincipe" src="widgets/HomeWidget/images/logoPrincipe.png"/>
@@ -23,8 +23,9 @@
    <li><mark>Les quartiers</mark></li>
    <li><mark>Les voies</mark> ( rues, avenues, impasses, canaux, voies de chemin de fer, axes de tramway, routes...)</li>
    <li><mark>Les limites</mark> (le bâti, les tranchées des rivages, les murs, les frontières. À noter que ces séparations sont aussi des coutures, des liens entre les quartiers, les régions…)</li>
-   <li><mark>Les noeuds</mark> (croisements, points de connexion, points de convergence, concentration, foyer du quartier, centre névralgique, places publiques…)</li>
+   <li><mark>Les nœuds</mark> (croisements, points de connexion, points de convergence, concentration, foyer du quartier, centre névralgique, places publiques…)</li>
    <li><mark>Les points de repère</mark> (références ponctuelles, bâtiments, architectures, signaux sonores, patrimoine sonore …)</li>
+   <p>En termes sonore, les voies, les limites et les nœuds qualifient la ville en général. Ce sont les sons ambiants.<br/>Les points de repère, quant à eux, symbolisent la ville en particulier. Ils sont séparés en deux parties distinctes, les points de repères visuels (bâtiments, architectures) et les signatures sonores (clochers, klaxons, sirènes...)</p>
   </div>
   <div id="thirdColum">
    <h2>La scénophonie urbaine&nbsp;:</h2>

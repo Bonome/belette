@@ -75,106 +75,248 @@ div{
 	height: 100%;
 	width: 100%;
 }
-.puceMenu .dijitMenuItemSelected{
+#dijit_MenuBar_1 .sideProjectSubMenuItemSelected .puceMenu {
 	background-image: url("img/puceMenu.png");
-	width: 13px; 
-	height: 13px;
+	width: 10px; 
+	height: 10px;
 }
 .puceMenu{
-	width: 13px; 
-	height: 13px;
+	width: 10px; 
+	height: 10px;
 }
 #dijit_MenuBar_0.dijitMenuActive{
 	width: 202px;
 }
 .dijitMenuItem{
-	width: 180px;
+	width: 182px;
 }
 .dijitMenuBar{
 	font-family: Amon, AmonIE; /* no .ttf */
-	color: #929292 !important;
+	color: #929292;
 	font-size: 25px;
-	background: none !important;
-	border: none !important;
+	background: none;
+	border: none;
 }
 #IdMenuHome_text{
-	color: #929292 !important;
-	padding-left: 32px !important;
+	padding-left: 32px;
 }
 #IdMenuProject_text{
-	color: #929292 !important;
-	padding-left: 32px !important;
+	padding-left: 32px;
 }
 #IdMenuRenacle_text{
-	color: #929292 !important;
-	padding-left: 32px !important;
+	padding-left: 32px;
 }
 #IdMenuBio_text{
-	color: #929292 !important;
-	padding-left: 32px !important;
+	padding-left: 32px;
 }
 #IdMenuLink_text{
-	color: #929292 !important;
-	padding-left: 32px !important;
+	padding-left: 32px;
 }
 #IdMenuContact_text{
-	color: #929292 !important;
-	padding-left: 32px !important;
+	padding-left: 32px;
+}
+#sideMenuContainer{
+    color: #929292;  
 }
 #dijit_MenuBar_1{
 	font-family: Fruit, FruitIE; /* no .ttf */
-	background-image: url("img/fondMenuSurvol.png") !important;
+	background-image: url("img/fondMenuSurvol.png");
 	margin-top: 6px;
 	margin-left: -10px;
 }
-.dijitMenuItemSelected{
-	background-image: url("img/fondMenuSurvol.png") !important;
-	color: white !important;
+#sideMenuContainer .sideMenuItemSelected{
+	background-image: url("img/fondMenuSurvol.png");
+	color: white;
 }
 .dijitMenuItemHover{
-	background-color: #d55800 !important;
-	color: white !important;
+	background-color: #d55800;
+	color: white;
 }
 #dijit_MenuBar_1 .dijitMenuItemHover, #dijit_MenuBar_1 .dijitMenuItemHover{
-	background-color: #d55800 !important;
-	color: white !important;
+	background-color: #d55800;
+	color: white;
 }
 #dijit_MenuBar_1 .dijitMenuItemLabel{
 	width: 200px;
 }
 #dijitMenuPassive{
-	padding-right: 11px !important;
+	padding-right: 11px;
 }
 #IdMenuProject1_text{
-	color: white !important;
-	font-size: 12px;
+	color: white;
+	font-size: 10pt;
 }
 #IdMenuProject2_text{
-	color: white !important;
-	font-size: 12px;
+	color: white;
+	font-size: 10pt;
 }
 #IdMenuProject3_text{
-	color: white !important;
-	font-size: 12px;
+	color: white;
+	font-size: 10pt;
 }
 #IdMenuProject4_text{
-	color: white !important;
-	font-size: 12px;
+	color: white;
+	font-size: 10pt;
 }
 #IdMenuProject5_text{
-	color: white !important;
-	font-size: 12px;
+	color: white;
+	font-size: 10pt;
 }
 #IdMenuProject6_text{
-	color: white !important;
-	font-size: 12px;
+	color: white;
+	font-size: 10pt;
 }
 .dijitReset .dijitMenuItemIconCell{
-	padding-left: 40px !important;
+	padding-left: 17px;
 }
 #leftArrow{
 	display: none;
 }
 #rightArrow{
 	display: none;
+}
+
+
+/*
+* Original CSS from claro theme for menu
+*
+*/
+
+/* dijitmenubar
+*/
+.dj_ie .dj_a11y .dijitMenuBar .dijitMenuItem {
+    
+    margin: 0;
+}
+.claro .dijitMenuBar {
+  margin: 0;
+  padding: 0;
+  _background-image: none;
+}
+.claro .dijitMenuBar .dijitMenuItem {
+  padding: 6px 10px 7px;
+  margin: 0px;
+}
+/* .claro .dijitMenuBar .dijitMenuItemHover, .claro .dijitMenuBar .dijitMenuItemSelected { */
+/*   border: solid 1px #759dc0; */
+/*   padding: 5px 9px 6px; */
+/* } */
+
+/* dijitmenupassive
+*/
+/* .dijitMenuPassive .dijitMenuItemHover, */
+/* .dijitMenuItemSelected { */
+    
+/*     background-color:black; */
+/*     color:white; */
+/* } */
+/* .dj_ie .claro .dijitMenuActive .dijitMenuItemHover, */
+/* .dj_ie .claro .dijitMenuActive .dijitMenuItemSelected, */
+/* .dj_ie .claro .dijitMenuPassive .dijitMenuItemHover, */
+/* .dj_ie .claro .dijitMenuPassive .dijitMenuItemSelected { */
+/*   padding-top: 6px; */
+/*   padding-bottom: 5px; */
+/*   margin-top: -3px; */
+/* } */
+
+/* dijitreset
+*/
+.dijitReset {
+    
+    margin:0;
+    border:0;
+    padding:0;
+    font: inherit;
+    line-height:normal;
+    color: inherit;
+}
+.dj_a11y .dijitReset {
+    -moz-appearance: none; 
+}
+/* dijitinline
+*/
+.dijitInline {
+    
+    display:inline-block;           
+    #zoom: 1; 
+    #display:inline; 
+    border:0;
+    padding:0;
+    vertical-align:middle;
+    #vertical-align: auto;  
+}
+table.dijitInline {
+    
+    display:inline-table;
+    box-sizing: content-box; -moz-box-sizing: content-box;
+}
+
+/* dijitmenuitem
+*/
+.dijitMenuItem {
+    text-align: left;
+    white-space: nowrap;
+    padding:.1em .2em;
+    cursor:pointer;
+}
+.dijitMenuItem:focus {
+    outline: none
+}
+/* .dijitMenuPassive .dijitMenuItemHover, */
+/* .dijitMenuItemSelected { */
+    
+/*     background-color:black; */
+/*     color:white; */
+/* } */
+.dijitMenuItemIcon, .dijitMenuExpand {
+    background-repeat: no-repeat;
+    padding-top: 1px;
+}
+.dijitMenuItemDisabled * {
+    
+    opacity:0.5;
+    cursor:default;
+}
+.dj_ie .dj_a11y .dijitMenuItemDisabled,
+.dj_ie .dj_a11y .dijitMenuItemDisabled td,
+.dj_ie .dijitMenuItemDisabled *,
+.dj_ie .dijitMenuItemDisabled td {
+    color:gray !important;
+    filter: alpha(opacity=35);
+}
+.dijitMenuItemLabel {
+    position: relative;
+    vertical-align: middle;
+}
+.dj_a11y .dijitMenuItemSelected {
+    border: 1px dotted black !important;    
+}
+.dj_ff3 .dj_a11y .dijitMenuItem td {
+    padding: 0 !important;
+    background:none !important;
+}
+.dj_a11y .dijitMenuItemSelected .dijitMenuItemLabel {
+    border-width: 1px;
+    border-style: solid;
+}
+.dj_ie8 .dj_a11y .dijitMenuItemLabel {
+    position:static;
+}
+.dijitSelectMenu .dijitMenuItemIcon {
+    
+    display:none;
+}
+.dj_ie6 .dijitSelectMenu .dijitMenuItemLabel,
+.dj_ie7 .dijitSelectMenu .dijitMenuItemLabel {
+    
+    position: static;
+}
+.claro .dijitSelectMenu td.dijitMenuItemLabel {
+  
+  padding: 2px;
+}
+.claro td.dijitMenuItemLabel {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
 }

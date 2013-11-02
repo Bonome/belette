@@ -47,14 +47,14 @@ define(["dojo/dom", "dojo/dom-construct", "dojo/window", "dojo/_base/declare","d
  				
 			    // Set our DOM node's background color to white -
 			    // smoothes out the mouseenter/leave event animations
-			    domStyle.set(domNode, "backgroundColor", "grey");
+			    domStyle.set(domNode, "backgroundColor", "red");
 
 				//domStyle.set(domNode,"width",(this.screenNumber*(vs.w-this.widthMenu))+"px");
 				//domStyle.set(domNode,"height",(vs.h-this.heightHeader)+"px");
 				//domStyle.set(domNode,"bottom", -1*vs.h+"px");
 				//domStyle.set(domNode,"right", this.screenNumber*-1*vs.w+((this.screenNumber-1)*this.widthMenu)+"px");
 				this.resizeSlide();
-				domStyle.set(domNode,"z-index", "-1");
+				domStyle.set(domNode,"z-index", "-3");
 				domStyle.set("leftArrow", "left", this.widthMenu+"px");
 				domStyle.set("leftArrow", "top", (((vs.h-this.heightHeader)/2)-100)+"px");
 				domStyle.set("rightArrow", "right", "0px");

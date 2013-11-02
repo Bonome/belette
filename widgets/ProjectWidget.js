@@ -22,6 +22,8 @@ define(["dojo/dom", "dojo/dom-construct", "dojo/window", "dojo/_base/declare","d
             // A class to be applied to the root node in our template
             baseClass: "projectWidget",
  
+            id:"projectWidget",
+            
             // A reference to our background animation
             mouseAnim: null,
  
@@ -35,21 +37,20 @@ define(["dojo/dom", "dojo/dom-construct", "dojo/window", "dojo/_base/declare","d
               domStyle.set(domNode,"height",(win.getBox().h-this.heightHeader)+"px");
               domStyle.set(domNode,"top", "0px");
               domStyle.set(domNode,"left", (win.getBox().w-this.widthMenu)+"px");
-              domStyle.set(domNode,"z-index", "-1");
             },
             
 			postCreate: function(){
     			// Get a DOM node reference for the root of our widget
 			    var domNode = this.domNode;
- 				var vs = win.getBox();
 			    // Run any parent postCreate processes - can be done at any point
 			    this.inherited(arguments);
  				
 			    // Set our DOM node's background color to white -
 			    // smoothes out the mouseenter/leave event animations
-			    domStyle.set(domNode, "backgroundColor", "black");
-			    
+			    domStyle.set(domNode, "backgroundColor", "whitesmoke");
 			    this.resizeFrame();
+			    
+	            domStyle.set(domNode,"z-index", "-2");
 			}
         });
 });

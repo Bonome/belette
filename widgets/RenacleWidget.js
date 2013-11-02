@@ -22,6 +22,8 @@ define(["dojo/dom", "dojo/dom-construct", "dojo/window", "dojo/_base/declare","d
             // A class to be applied to the root node in our template
             baseClass: "renacleWidget",
  
+            id: "renacleWidget",
+            
             // A reference to our background animation
             mouseAnim: null,
  
@@ -29,10 +31,17 @@ define(["dojo/dom", "dojo/dom-construct", "dojo/window", "dojo/_base/declare","d
             baseBackgroundColor: "#fff",
             mouseBackgroundColor: "#def",
 
+            resizeFrame: function(){
+              var domNode = this.domNode;
+              domStyle.set(domNode,"width",(win.getBox().w-this.widthMenu)+"px");
+              domStyle.set(domNode,"height",(win.getBox().h-this.heightHeader)+"px");
+              domStyle.set(domNode,"top", "0px");
+              domStyle.set(domNode,"left", (2*(win.getBox().w-this.widthMenu))+"px");
+            },
+            
 			postCreate: function(){
     			// Get a DOM node reference for the root of our widget
 			    var domNode = this.domNode;
- 				var vs = win.getBox();
 			    // Run any parent postCreate processes - can be done at any point
 			    this.inherited(arguments);
  				
@@ -40,11 +49,9 @@ define(["dojo/dom", "dojo/dom-construct", "dojo/window", "dojo/_base/declare","d
 			    // smoothes out the mouseenter/leave event animations
 			    domStyle.set(domNode, "backgroundColor", "grey");
 
-				domStyle.set(domNode,"width",(vs.w-this.widthMenu)+"px");
-				domStyle.set(domNode,"height",(vs.h-this.heightHeader)+"px");
-				domStyle.set(domNode,"top", "0px");
-				domStyle.set(domNode,"left", (2*(vs.w-this.widthMenu))+"px");
-				domStyle.set(domNode,"z-index", "-1");
+			    this.resizeFrame();
+			    
+				domStyle.set(domNode,"z-index", "-2");
 			}
         });
 });
