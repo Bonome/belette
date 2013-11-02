@@ -32,7 +32,7 @@ function(request_json,bwin,focusUtil,dimg, win, on,
         focusUtil.focus(dom.byId("IdMenuHome")); 
     });
     
-	//dimg.preload(["http://4.bp.blogspot.com/_hk2dup6KMsI/SrZghr1NbXI/AAAAAAAAANE/Bn_MUgbXfGg/s1600/long_tailed_weasel.jpg"]);
+	dimg.preload(["img/loader.jpg"]);
 
 
 	//constantes

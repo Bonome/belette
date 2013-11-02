@@ -54,7 +54,19 @@ html,body {
 div{
 	display: block;
 	position: absolute;
-} 
+}
+#loader{
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+}
+#loader_img{
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+}
 #navBar{
 	bottom: 0px;
 	width: 100%;
